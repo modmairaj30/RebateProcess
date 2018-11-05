@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dalmia.dce.service.SchemeHeaderService;
+import com.dalmia.dce.vo.SchemeHeaderVO;
 
 
 
@@ -23,14 +24,14 @@ public class SchemeHeaderController {
 	SchemeHeaderService schemeHeaderService;
 	
 	@GetMapping(value = "/getAllScheme")
-    public List<Suggestions> getSuggstions() {
-        return suggService.getSuggstions();
+    public List<SchemeHeaderVO> getSuggstions() {
+        return schemeHeaderService.getSchemeHeader();
     }
 
-    @GetMapping(value = "/getSuggestionsById")
-    public List<Suggestions> getVoilationsById(SuggestionsVO sgVO) {
-        return suggService.getSuggstionsById(sgVO);
-    }
+   /* @GetMapping(value = "/getSchemeById")
+    public List<SchemeHeaderVO> getVoilationsById(SchemeHeaderVO shVO) {
+        return schemeHeaderService.getSuggstionsById(sVO);
+    }*/
     
    
 }
