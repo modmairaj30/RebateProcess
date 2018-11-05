@@ -1,4 +1,4 @@
-package com.dalmia.dce.dao;
+/*package com.dalmia.dce.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -619,3 +619,4 @@ private Connection jdbcConnection;
 	
 
 }
+*/

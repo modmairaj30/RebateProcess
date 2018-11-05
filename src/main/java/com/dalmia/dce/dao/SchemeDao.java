@@ -1,4 +1,4 @@
-package com.dalmia.dce.dao;
+/*package com.dalmia.dce.dao;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -111,8 +111,8 @@ public class SchemeDao {
 	public Scheme getScheme(int id) throws SQLException {
 		Scheme scheme = null;
 		String sql = "SELECT * FROM qd_definition_header WHERE QD_Definition_Header_ID = ?";
-		/*String sql = "SELECT q.QD_Definition_Header_ID,q.SCHEME_CATEGORY,SCHEME_TYPE,q.Scheme_No,q.Created_By,"+
-                     "q.Created_On,q.Prev_From_Date,q.Prev_To_Date,q.Approve_Status ,q.Region FROM qd_definition_header q WHERE q.QD_Definition_Header_ID = ?";*/
+		String sql = "SELECT q.QD_Definition_Header_ID,q.SCHEME_CATEGORY,SCHEME_TYPE,q.Scheme_No,q.Created_By,"+
+                     "q.Created_On,q.Prev_From_Date,q.Prev_To_Date,q.Approve_Status ,q.Region FROM qd_definition_header q WHERE q.QD_Definition_Header_ID = ?";
 		connect();
 		PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 		statement.setInt(1, id);
@@ -795,9 +795,9 @@ public class SchemeDao {
 	statement.close();
 	return hmp;
 	}
-     /*schem saving*/
+     schem saving
 	//CEMSTTN1TRSSRBCD082018001	
-	/*Division/Region/StateCode/Distributionchannel/SchemeCategory/SchemeType/Period/Year/RunningSlNo.*/			
+	Division/Region/StateCode/Distributionchannel/SchemeCategory/SchemeType/Period/Year/RunningSlNo.			
 	public void saveSchemes(Scheme schem) throws SQLException  {
 		connect();
 		String str="";
@@ -941,9 +941,10 @@ public class SchemeDao {
 		e.printStackTrace();
 	}  
 }    
-/*end scheme save*/
+end scheme save
     
 	
 }
 	
 	
+*/
