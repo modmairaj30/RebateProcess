@@ -55,6 +55,7 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,SalesDistrictVO> getSalesDistrict() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String,SalesDistrictVO> salesDistrictMap = new LinkedHashMap<String,SalesDistrictVO>();
 		String sql = "select SDst,District_Name from sales_district";
 		//connect();
@@ -79,6 +80,7 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,CompanyCodesVO> getComp() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String,CompanyCodesVO> compMap = new LinkedHashMap<String,CompanyCodesVO>();
 		String sql = "select CoCd,Company_Name from company_codes";
 		//connect();
@@ -100,6 +102,7 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,SchemeUniverseVO> getSchemUnverse() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String, SchemeUniverseVO> schemUnivMap = new LinkedHashMap<String,SchemeUniverseVO>();
 		String sql = "select Business_Name,Field_Type from scheme_universe order by Business_Name";
 		//connect();
@@ -125,6 +128,7 @@ public class ShemCreationDetailDao {
 	//
 	
 	public Map<String,DistributionChannelVO> getDistbChanel() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String,DistributionChannelVO> distChanelMap = new LinkedHashMap<String,DistributionChannelVO>();
 		String sql = "select DChl,Name from distribution_channel";
 		//connect();
