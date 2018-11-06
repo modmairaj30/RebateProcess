@@ -1,4 +1,4 @@
-package com.dalmia.dce.controller;
+/*package com.dalmia.dce.controller;
 
 
 import java.util.List;
@@ -25,10 +25,11 @@ public class SchemeHeaderController {
         return schemeHeaderService.getSchemeHeader();
     }
 
-   /* @GetMapping(value = "/getSchemeById")
+    @GetMapping(value = "/getSchemeById")
     public List<SchemeHeaderVO> getVoilationsById(SchemeHeaderVO shVO) {
         return schemeHeaderService.getSuggstionsById(sVO);
-    }*/
+    }
     
    
 }
+*/

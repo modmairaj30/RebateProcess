@@ -1,4 +1,4 @@
-package com.dalmia.dce.service;
+/*package com.dalmia.dce.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +25,9 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 	}
 		return lshvo;
 	}
-	/*public List<SchemeHeader> getSchemeHeaderById(SchemeHeaderVO schemeHeaderVO) {
+	public List<SchemeHeader> getSchemeHeaderById(SchemeHeaderVO schemeHeaderVO) {
 		return schemeHeaderRepository.findById();
-	}*/
+	}
 	
 }
+*/

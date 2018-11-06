@@ -1,4 +1,4 @@
-package com.dalmia.dce.entities;
+/*package com.dalmia.dce.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -293,3 +293,4 @@ public class SchemeHeaderDetail implements Serializable {
 	
 
 	}
+*/

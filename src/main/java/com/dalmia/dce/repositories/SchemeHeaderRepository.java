@@ -1,4 +1,4 @@
-package com.dalmia.dce.repositories;
+/*package com.dalmia.dce.repositories;
 
 import java.util.List;
 
@@ -10,3 +10,4 @@ public interface SchemeHeaderRepository extends JpaRepository<SchemeHeader,Integ
 	List<SchemeHeader> findAll();
 
 }
+*/

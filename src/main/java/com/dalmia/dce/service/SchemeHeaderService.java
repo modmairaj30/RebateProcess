@@ -1,4 +1,4 @@
-package com.dalmia.dce.service;
+/*package com.dalmia.dce.service;
 
 import java.util.List;
 
@@ -9,3 +9,4 @@ public interface SchemeHeaderService {
 	List<SchemeHeaderVO> getSchemeHeader();
 
 }
+*/

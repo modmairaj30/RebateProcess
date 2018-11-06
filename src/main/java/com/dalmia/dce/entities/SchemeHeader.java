@@ -1,4 +1,4 @@
-package com.dalmia.dce.entities;
+/*package com.dalmia.dce.entities;
 
 import java.util.Date;
 
@@ -32,17 +32,17 @@ public class SchemeHeader {
 	@Column(name = "Business_Area",length=4)
 	private String buisnessArea;
 	
-/*	@Column(name = "Scheme_Category",length=30)
+	@Column(name = "Scheme_Category",length=30)
     private String paymentMethod;
 
 	@Column(name = "Scheme_Category",length=30)
     private String profitCenter;
-*/		
+		
 	@Column(name = "GL_Account",length=10)
     private String glAccount;
 	
-/*	@Column(name = "Scheme_Category",length=30)
-    private String costCenter;*/
+	@Column(name = "Scheme_Category",length=30)
+    private String costCenter;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "From_Date")
@@ -58,7 +58,7 @@ public class SchemeHeader {
 	@Column(name = "Exclude_CST_Sale",length=30)
 	private String excCstScale;
 	
-/*	@Column(name = "Scheme_Category",length=30)
+	@Column(name = "Scheme_Category",length=30)
 	private String billingType;
 	
 	@Column(name = "Scheme_Category",length=30)
@@ -100,16 +100,16 @@ public class SchemeHeader {
 	
 	@Column(name = "Scheme_Category",length=30)
 	private String countryCode;
-	*/
+	
 	@Column(name = "Prev_From_Date",length=10)
 	private String prevfromDate;
 	
 	@Column(name = "Prev_To_Date",length=10)
 	private String prevToDate;
 	
-/*	@Column(name = "Scheme_Category",length=30)
+	@Column(name = "Scheme_Category",length=30)
 	private String paymentInstrumentType;
-	*/
+	
 	
 	@Column(name = "Cost_Center",length=10)
 	private String costCenter;
@@ -353,3 +353,4 @@ public class SchemeHeader {
 
 	
 }
+*/
