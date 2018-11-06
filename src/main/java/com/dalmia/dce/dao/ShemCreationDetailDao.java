@@ -17,6 +17,7 @@ import com.dalmia.dce.vo.DistributionChannelVO;
 import com.dalmia.dce.vo.SalesDistrictVO;
 import com.dalmia.dce.vo.SalesOrganizationVO;
 import com.dalmia.dce.vo.SchemeUniverseVO;
+import com.dalmia.dce.vo.ViewSchemCreationVO;
 
 @Service
 public class ShemCreationDetailDao {
@@ -55,7 +56,6 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,SalesDistrictVO> getSalesDistrict() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
 		Map<String,SalesDistrictVO> salesDistrictMap = new LinkedHashMap<String,SalesDistrictVO>();
 		String sql = "select SDst,District_Name from sales_district";
 		//connect();
@@ -80,7 +80,6 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,CompanyCodesVO> getComp() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
 		Map<String,CompanyCodesVO> compMap = new LinkedHashMap<String,CompanyCodesVO>();
 		String sql = "select CoCd,Company_Name from company_codes";
 		//connect();
@@ -102,7 +101,6 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,SchemeUniverseVO> getSchemUnverse() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
 		Map<String, SchemeUniverseVO> schemUnivMap = new LinkedHashMap<String,SchemeUniverseVO>();
 		String sql = "select Business_Name,Field_Type from scheme_universe order by Business_Name";
 		//connect();
@@ -128,7 +126,6 @@ public class ShemCreationDetailDao {
 	//
 	
 	public Map<String,DistributionChannelVO> getDistbChanel() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
 		Map<String,DistributionChannelVO> distChanelMap = new LinkedHashMap<String,DistributionChannelVO>();
 		String sql = "select DChl,Name from distribution_channel";
 		//connect();
@@ -387,8 +384,9 @@ public class ShemCreationDetailDao {
 }
 
 	
-	/*public ViewSchemCreation getViewSchemCreation() throws SQLException {
-		ViewSchemCreation viewSchemCreation = new ViewSchemCreation();
+	public ViewSchemCreationVO getViewSchemCreation() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
+		ViewSchemCreationVO viewSchemCreation = new ViewSchemCreationVO();
 		String sql = "select Company_Code,scheme_No,Scheme_Category,Scheme_Type,From_Date,To_Date,Active,Exclude_CST_Sale,Sales_Org,"
                 +"Distrbution_Channel,Division,Billing_Type,Sales_Office,Sales_Group,Plant,Region,Sales_District,"
                 +"Country_Code,City_Code,Customer_Group,Customer,Shipping_Cond,Material_Group,Material,Business_Area,"
@@ -636,6 +634,6 @@ public class ShemCreationDetailDao {
 	return viewSchemCreation;
 }
 	
-*/	
+	
 
 }
