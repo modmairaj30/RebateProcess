@@ -1,8 +1,5 @@
 package com.dalmia.dce.vo;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 public class SchemeHeaderDetailVO {
 	private static final long serialVersionUID = 4865903039190150223L;
 	
