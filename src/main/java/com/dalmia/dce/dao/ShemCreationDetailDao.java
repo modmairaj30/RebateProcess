@@ -28,10 +28,7 @@ import com.dalmia.dce.vo.SalesGroupVO;
 import com.dalmia.dce.vo.SalesOfficeVO;
 import com.dalmia.dce.vo.SalesOrganizationVO;
 import com.dalmia.dce.vo.SchemeUniverseVO;
-<<<<<<< HEAD
 import com.dalmia.dce.vo.ShippingConditionsVO;
-=======
->>>>>>> abc643ae58cc83c13d865bb2ba7629d3c9d91eb9
 import com.dalmia.dce.vo.ViewSchemCreationVO;
 
 @Service
@@ -71,6 +68,7 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,SalesDistrictVO> getSalesDistrict() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String,SalesDistrictVO> salesDistrictMap = new LinkedHashMap<String,SalesDistrictVO>();
 		String sql = "select SDst,District_Name from sales_district";
 		//connect();
@@ -95,6 +93,7 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,CompanyCodesVO> getComp() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String,CompanyCodesVO> compMap = new LinkedHashMap<String,CompanyCodesVO>();
 		String sql = "select CoCd,Company_Name from company_codes";
 		//connect();
@@ -116,6 +115,7 @@ public class ShemCreationDetailDao {
 	}
 	
 	public Map<String,SchemeUniverseVO> getSchemUnverse() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String, SchemeUniverseVO> schemUnivMap = new LinkedHashMap<String,SchemeUniverseVO>();
 		String sql = "select Business_Name,Field_Type from scheme_universe order by Business_Name";
 		//connect();
@@ -141,6 +141,7 @@ public class ShemCreationDetailDao {
 	//
 	
 	public Map<String,DistributionChannelVO> getDistbChanel() throws SQLException {
+		jdbcConnection = dataSource.getConnection();
 		Map<String,DistributionChannelVO> distChanelMap = new LinkedHashMap<String,DistributionChannelVO>();
 		String sql = "select DChl,Name from distribution_channel";
 		//connect();
@@ -420,12 +421,9 @@ public class ShemCreationDetailDao {
 	return plantMap;
 }
 
-<<<<<<< HEAD
-public ViewSchemCreationVO getViewSchemCreation() throws SQLException {
-=======
 	
 	public ViewSchemCreationVO getViewSchemCreation() throws SQLException {
->>>>>>> abc643ae58cc83c13d865bb2ba7629d3c9d91eb9
+
 		jdbcConnection = dataSource.getConnection();
 		ViewSchemCreationVO viewSchemCreation = new ViewSchemCreationVO();
 		String sql = "select Company_Code,scheme_No,Scheme_Category,Scheme_Type,From_Date,To_Date,Active,Exclude_CST_Sale,Sales_Org,"
@@ -674,10 +672,4 @@ public ViewSchemCreationVO getViewSchemCreation() throws SQLException {
 	statement.close();
 	return viewSchemCreation;
 }
-<<<<<<< HEAD
-=======
-	
-	
-
->>>>>>> abc643ae58cc83c13d865bb2ba7629d3c9d91eb9
 }
