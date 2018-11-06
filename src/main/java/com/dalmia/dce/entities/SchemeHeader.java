@@ -50,7 +50,7 @@ public class SchemeHeader {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "To_Date")
-	private String toDate;
+	private Date toDate;
 	
 	@Column(name = "Active",length=4)
 	private String active;
@@ -206,11 +206,11 @@ public class SchemeHeader {
 		this.fromDate = fromDate;
 	}
 
-	public String getToDate() {
+	public Date getToDate() {
 		return toDate;
 	}
 
-	public void setToDate(String toDate) {
+	public void setToDate(Date toDate) {
 		this.toDate = toDate;
 	}
 

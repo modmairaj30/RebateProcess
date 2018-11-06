@@ -1,4 +1,4 @@
-package com.dalmia.rebateprocess;
+package com.dalmia;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
