@@ -1,6 +1,7 @@
 package com.dalmia.dce.controller;
 
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,285 +36,290 @@ import com.dalmia.dce.vo.SchemeUniverseVO;
 import com.dalmia.dce.vo.ShippingConditionsVO;
 import com.dalmia.dce.vo.ViewSchemCreationVO;
 
-
 @RestController
 @RequestMapping("/rest")
 @CrossOrigin("*")
 public class NewSchemeCreationController {
 	@Autowired
 	ShemCreationDetailDao schemcreationDetaiDao;
+
 	@GetMapping(value = "/getSchemeMetadata")
-    public Map<String, SalesOrganizationVO> getAllSchemes() {
-        try {
-			return  schemcreationDetaiDao.getSalesOrg();
+	public Map<String, SalesOrganizationVO> getAllSchemes() {
+		try {
+			return schemcreationDetaiDao.getSalesOrg();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getSalesDistrict")
-    public Map<String, SalesDistrictVO> getSalesDistrict() {
-        try {
-			return  schemcreationDetaiDao.getSalesDistrict();
+	public Map<String, SalesDistrictVO> getSalesDistrict() {
+		try {
+			return schemcreationDetaiDao.getSalesDistrict();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getComp")
-    public Map<String, CompanyCodesVO> getComp() {
-        try {
-			return  schemcreationDetaiDao.getComp();
+	public Map<String, CompanyCodesVO> getComp() {
+		try {
+			return schemcreationDetaiDao.getComp();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
+		return null;
+	}
+
 	@GetMapping(value = "/getSchemUnverse")
-    public Map<String, SchemeUniverseVO> getSchemUnverse() {
-        try {
-			return  schemcreationDetaiDao.getSchemUnverse();
+	public Map<String, SchemeUniverseVO> getSchemUnverse() {
+		try {
+			return schemcreationDetaiDao.getSchemUnverse();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
-	//------------------------------------
+		return null;
+	}
+
+	// ------------------------------------
 	@GetMapping(value = "/getDistbChanel")
-    public Map<String, DistributionChannelVO> getDistbChanel() {
-        try {
-			return  schemcreationDetaiDao.getDistbChanel();
+	public Map<String, DistributionChannelVO> getDistbChanel() {
+		try {
+			return schemcreationDetaiDao.getDistbChanel();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getDivision")
-    public Map<String, DivisionVO> getDivision() {
-        try {
-			return  schemcreationDetaiDao.getDivision();
+	public Map<String, DivisionVO> getDivision() {
+		try {
+			return schemcreationDetaiDao.getDivision();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getBilling")
-    public Map<String, BillingTypeVO> getBilling() {
-        try {
-			return  schemcreationDetaiDao.getBilling();
+	public Map<String, BillingTypeVO> getBilling() {
+		try {
+			return schemcreationDetaiDao.getBilling();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getSalesOffice")
-    public Map<String, SalesOfficeVO> getSalesOffice() {
-        try {
-			return  schemcreationDetaiDao.getSalesOffice();
+	public Map<String, SalesOfficeVO> getSalesOffice() {
+		try {
+			return schemcreationDetaiDao.getSalesOffice();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getSalesGroup")
-    public Map<String, SalesGroupVO> getSalesGroup() {
-        try {
-			return  schemcreationDetaiDao.getSalesGroup();
+	public Map<String, SalesGroupVO> getSalesGroup() {
+		try {
+			return schemcreationDetaiDao.getSalesGroup();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getRegion")
-    public Map<String, RegionVO> getRegion() {
-        try {
-			return  schemcreationDetaiDao.getRegion();
+	public Map<String, RegionVO> getRegion() {
+		try {
+			return schemcreationDetaiDao.getRegion();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getCity")
-    public Map<String, CityCodeVO> getCity() {
-        try {
-			return  schemcreationDetaiDao.getCity();
+	public Map<String, CityCodeVO> getCity() {
+		try {
+			return schemcreationDetaiDao.getCity();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getCustmGrp")
-    public Map<String, CustomerGroupVO> getCustmGrp() {
-        try {
-			return  schemcreationDetaiDao.getCustmGrp();
+	public Map<String, CustomerGroupVO> getCustmGrp() {
+		try {
+			return schemcreationDetaiDao.getCustmGrp();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
-	
-	
-	
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getCustomer")
-    public Map<String, CustomerVO> getCustomer() {
-        try {
-			return  schemcreationDetaiDao.getCustomer();
+	public Map<String, CustomerVO> getCustomer() {
+		try {
+			return schemcreationDetaiDao.getCustomer();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getShippingCondition")
-    public Map<String, ShippingConditionsVO> getShippingCondition() {
-        try {
-			return  schemcreationDetaiDao.getShippingCondition();
+	public Map<String, ShippingConditionsVO> getShippingCondition() {
+		try {
+			return schemcreationDetaiDao.getShippingCondition();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getMaterialGrp")
-    public Map<String, MaterialGroupVO> getMaterialGrp() {
-        try {
-			return  schemcreationDetaiDao.getMaterialGrp();
+	public Map<String, MaterialGroupVO> getMaterialGrp() {
+		try {
+			return schemcreationDetaiDao.getMaterialGrp();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getMaterial")
-    public Map<String, MaterialVO> getMaterial() {
-        try {
-			return  schemcreationDetaiDao.getMaterial();
+	public Map<String, MaterialVO> getMaterial() {
+		try {
+			return schemcreationDetaiDao.getMaterial();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
-	
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getPlant")
-    public Map<String, PlantVO> getPlant() {
-        try {
-			return  schemcreationDetaiDao.getPlant();
+	public Map<String, PlantVO> getPlant() {
+		try {
+			return schemcreationDetaiDao.getPlant();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getProfitCenter")
-    public Map<String, ProfitCenterVO> getProfitCenter() {
-        try {
-			return  schemcreationDetaiDao.getProfitCenter();
+	public Map<String, ProfitCenterVO> getProfitCenter() {
+		try {
+			return schemcreationDetaiDao.getProfitCenter();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getBusinessArea")
-    public Map<String, BusinessAreaVO> getBusinessArea() {
-        try {
-			return  schemcreationDetaiDao.getBusinessArea();
+	public Map<String, BusinessAreaVO> getBusinessArea() {
+		try {
+			return schemcreationDetaiDao.getBusinessArea();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getPaymentInsType")
-    public Map<String, PaymentInsurenceTypeVO> getPaymentInsType() {
-        try {
-			return  schemcreationDetaiDao.getPaymentInsType();
+	public Map<String, PaymentInsurenceTypeVO> getPaymentInsType() {
+		try {
+			return schemcreationDetaiDao.getPaymentInsType();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getGlAccount")
-    public Map<String, GLAccountVO> getGlAccount() {
-        try {
-			return  schemcreationDetaiDao.getGlAccount();
+	public Map<String, GLAccountVO> getGlAccount() {
+		try {
+			return schemcreationDetaiDao.getGlAccount();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getCostCenter")
-    public Map<String, CostCenterVO> getCostCenter() {
-        try {
-			return  schemcreationDetaiDao.getCostCenter();
+	public Map<String, CostCenterVO> getCostCenter() {
+		try {
+			return schemcreationDetaiDao.getCostCenter();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getCountryCode")
-    public Map<String, CountryCodeVO> getCountryCode() {
-        try {
-			return  schemcreationDetaiDao.getCountryCode();
+	public Map<String, CountryCodeVO> getCountryCode() {
+		try {
+			return schemcreationDetaiDao.getCountryCode();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
-	
+		return null;
+	}
+
 	@GetMapping(value = "/getViewSchemCreation")
-    public ViewSchemCreationVO getViewSchemCreation() {
-        try {
-			return  schemcreationDetaiDao.getViewSchemCreation();
+	public ViewSchemCreationVO getViewSchemCreation() {
+		try {
+			return schemcreationDetaiDao.getViewSchemCreation();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return null;
-    }
-	
-	
+		return null;
+	}
+
+	@GetMapping(value = "/getNewSchemCreation")
+	public Map referenceData() throws Exception {
+
+		Map<String, String> category = new LinkedHashMap<String, String>();
+		category.put("Standard Schemes(Tentative)", "Standard Schemes(Tentative)");
+		category.put("Product Support Schemes", "Product Support Schemes");
+		category.put("Price Support / Difference Schemes", "Price Support / Difference Schemes");
+		category.put("Commission Schemes", "Commission Schemes");
+		category.put("CRM Schemes", "CRM Schemes");
+
+		return category;
+
+	}
+
 }

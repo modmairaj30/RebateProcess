@@ -1,59 +1,66 @@
 package com.dalmia.dce.vo;
 
 import java.util.Date;
+import java.util.List;
+
+import com.dalmia.dce.entities.SchemeHeaderCond;
+import com.dalmia.dce.entities.SchemeHeaderDetail;
 
 public class SchemeHeaderVO {
-	
+
 	private int schemeId;
-	
-	private String schemNumb;
-	
-	private String schemCategory;
-	
-	private String schemType;
-	
-	private String buisnessArea;
-	
-    private String glAccount;
-	
-	private Date fromDate;
-	
-	private String toDate;
-	
-	private String active;
-
-	private String excCstScale;
-	
-	private String prevfromDate;
-
-	private String prevToDate;
-	
-	private String costCenter;
 
 	private String salesDocType;
 
-	private String orderNo;
+	private String schemCategory;
+
+	private String schemType;
+
+	private String OrderNo;
+
+	private String schemNumb;
 
 	private String priceList;
-	
+
 	private String selfOrGroup;
-	
+
 	private String taxCode;
-	
+
+	private Date fromDate;
+
+	private Date toDate;
+
+	private String glAccount;
+
 	private String budgetReferenceNo;
 
 	private String businessPlace;
 
-	private String singleCharacterInd;
+	private String active;
 
-	private String sapNonSapData;
+	private String exclusiveCSTSale;
+
+	private String singleCharecterInd;
+
+	private String sapNonSapDate;
+
+	private Date prevfromDate;
+
+	private Date prevToDate;
+
+	private String costCenter;
+
+	private String buisnessArea;
 
 	private String createdBy;
 
 	private String createdOn;
 
 	private String approveStatus;
+	private List<SchemeHeaderDetailVO> schemeHeaderDetail;
+	private List<SchemeHeaderCondVO> schemeHeaderCond;
 
+	////
 	public int getSchemeId() {
 		return schemeId;
 	}
@@ -62,12 +69,12 @@ public class SchemeHeaderVO {
 		this.schemeId = schemeId;
 	}
 
-	public String getSchemNumb() {
-		return schemNumb;
+	public String getSalesDocType() {
+		return salesDocType;
 	}
 
-	public void setSchemNumb(String schemNumb) {
-		this.schemNumb = schemNumb;
+	public void setSalesDocType(String salesDocType) {
+		this.salesDocType = salesDocType;
 	}
 
 	public String getSchemCategory() {
@@ -86,92 +93,20 @@ public class SchemeHeaderVO {
 		this.schemType = schemType;
 	}
 
-	public String getBuisnessArea() {
-		return buisnessArea;
-	}
-
-	public void setBuisnessArea(String buisnessArea) {
-		this.buisnessArea = buisnessArea;
-	}
-
-	public String getGlAccount() {
-		return glAccount;
-	}
-
-	public void setGlAccount(String glAccount) {
-		this.glAccount = glAccount;
-	}
-
-	public Date getFromDate() {
-		return fromDate;
-	}
-
-	public void setFromDate(Date fromDate) {
-		this.fromDate = fromDate;
-	}
-
-	public String getToDate() {
-		return toDate;
-	}
-
-	public void setToDate(String toDate) {
-		this.toDate = toDate;
-	}
-
-	public String getActive() {
-		return active;
-	}
-
-	public void setActive(String active) {
-		this.active = active;
-	}
-
-	public String getExcCstScale() {
-		return excCstScale;
-	}
-
-	public void setExcCstScale(String excCstScale) {
-		this.excCstScale = excCstScale;
-	}
-
-	public String getPrevfromDate() {
-		return prevfromDate;
-	}
-
-	public void setPrevfromDate(String prevfromDate) {
-		this.prevfromDate = prevfromDate;
-	}
-
-	public String getPrevToDate() {
-		return prevToDate;
-	}
-
-	public void setPrevToDate(String prevToDate) {
-		this.prevToDate = prevToDate;
-	}
-
-	public String getCostCenter() {
-		return costCenter;
-	}
-
-	public void setCostCenter(String costCenter) {
-		this.costCenter = costCenter;
-	}
-
-	public String getSalesDocType() {
-		return salesDocType;
-	}
-
-	public void setSalesDocType(String salesDocType) {
-		this.salesDocType = salesDocType;
-	}
-
 	public String getOrderNo() {
-		return orderNo;
+		return OrderNo;
 	}
 
 	public void setOrderNo(String orderNo) {
-		this.orderNo = orderNo;
+		OrderNo = orderNo;
+	}
+
+	public String getSchemNumb() {
+		return schemNumb;
+	}
+
+	public void setSchemNumb(String schemNumb) {
+		this.schemNumb = schemNumb;
 	}
 
 	public String getPriceList() {
@@ -198,6 +133,30 @@ public class SchemeHeaderVO {
 		this.taxCode = taxCode;
 	}
 
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+
+	public Date getToDate() {
+		return toDate;
+	}
+
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
+
+	public String getGlAccount() {
+		return glAccount;
+	}
+
+	public void setGlAccount(String glAccount) {
+		this.glAccount = glAccount;
+	}
+
 	public String getBudgetReferenceNo() {
 		return budgetReferenceNo;
 	}
@@ -214,20 +173,68 @@ public class SchemeHeaderVO {
 		this.businessPlace = businessPlace;
 	}
 
-	public String getSingleCharacterInd() {
-		return singleCharacterInd;
+	public String getActive() {
+		return active;
 	}
 
-	public void setSingleCharacterInd(String singleCharacterInd) {
-		this.singleCharacterInd = singleCharacterInd;
+	public void setActive(String active) {
+		this.active = active;
 	}
 
-	public String getSapNonSapData() {
-		return sapNonSapData;
+	public String getExclusiveCSTSale() {
+		return exclusiveCSTSale;
 	}
 
-	public void setSapNonSapData(String sapNonSapData) {
-		this.sapNonSapData = sapNonSapData;
+	public void setExclusiveCSTSale(String exclusiveCSTSale) {
+		this.exclusiveCSTSale = exclusiveCSTSale;
+	}
+
+	public String getSingleCharecterInd() {
+		return singleCharecterInd;
+	}
+
+	public void setSingleCharecterInd(String singleCharecterInd) {
+		this.singleCharecterInd = singleCharecterInd;
+	}
+
+	public String getSapNonSapDate() {
+		return sapNonSapDate;
+	}
+
+	public void setSapNonSapDate(String sapNonSapDate) {
+		this.sapNonSapDate = sapNonSapDate;
+	}
+
+	public Date getPrevfromDate() {
+		return prevfromDate;
+	}
+
+	public void setPrevfromDate(Date prevfromDate) {
+		this.prevfromDate = prevfromDate;
+	}
+
+	public Date getPrevToDate() {
+		return prevToDate;
+	}
+
+	public void setPrevToDate(Date prevToDate) {
+		this.prevToDate = prevToDate;
+	}
+
+	public String getCostCenter() {
+		return costCenter;
+	}
+
+	public void setCostCenter(String costCenter) {
+		this.costCenter = costCenter;
+	}
+
+	public String getBuisnessArea() {
+		return buisnessArea;
+	}
+
+	public void setBuisnessArea(String buisnessArea) {
+		this.buisnessArea = buisnessArea;
 	}
 
 	public String getCreatedBy() {
@@ -254,5 +261,20 @@ public class SchemeHeaderVO {
 		this.approveStatus = approveStatus;
 	}
 
+	public List<SchemeHeaderDetailVO> getSchemeHeaderDetail() {
+		return schemeHeaderDetail;
+	}
+
+	public void setSchemeHeaderDetail(List<SchemeHeaderDetailVO> schemeHeaderDetail) {
+		this.schemeHeaderDetail = schemeHeaderDetail;
+	}
+
+	public List<SchemeHeaderCondVO> getSchemeHeaderCond() {
+		return schemeHeaderCond;
+	}
+
+	public void setSchemeHeaderCond(List<SchemeHeaderCondVO> schemeHeaderCond) {
+		this.schemeHeaderCond = schemeHeaderCond;
+	}
 
 }

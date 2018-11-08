@@ -556,7 +556,7 @@ public class ShemCreationDetailDao {
 	public Map<String,CountryCodeVO> getCountryCode() throws SQLException {
 		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,CountryCodeVO> countryCodeMap = new LinkedHashMap<String,CountryCodeVO>();
-		String sql = "SELECT Ctr, Rg, Ccd, Description, CoCd FROM county_code";
+		String sql = "SELECT Ctr, Rg, Ccd, Description FROM county_code";
 		//connect();
 		Statement statement = jdbcConnection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sql);

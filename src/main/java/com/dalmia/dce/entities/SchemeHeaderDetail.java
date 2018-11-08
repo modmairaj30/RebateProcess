@@ -1,10 +1,12 @@
-/*package com.dalmia.dce.entities;
+package com.dalmia.dce.entities;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -14,8 +16,13 @@ import javax.persistence.Transient;
 @Table(name = "sch_header_det")
 public class SchemeHeaderDetail implements Serializable {
 	private static final long serialVersionUID = 4865903039190150223L;
+	
 	@Id
-	@Column(name = "Header_ID")
+	@Column(name = "sch_hdr_det_id",length=11)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int schemeHdrDetId;
+	
+	@Column(name = "Header_Id")
 	private String headerId;
 	@Column(name = "Company_Code", length = 6)
 	private String companyCode;
@@ -84,10 +91,10 @@ public class SchemeHeaderDetail implements Serializable {
 	@Column(name = "Billing_Type", length = 6)
 	private String billingType;
 
-	@Column(name = "Profit_Center",length = 10)
+	@Column(name = "Profit_Centre",length = 10)
 	private String profitCenter;
 	
-	@Column(name = "Partner_Functn",length = 20)
+	@Column(name = "Partner_Function",length = 20)
 	private String partnerFunctn;
 
 	public String getHeaderId() {
@@ -293,4 +300,3 @@ public class SchemeHeaderDetail implements Serializable {
 	
 
 	}
-*/

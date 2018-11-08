@@ -1,12 +1,16 @@
-/*package com.dalmia.dce.entities;
+package com.dalmia.dce.entities;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,12 +20,12 @@ import javax.persistence.TemporalType;
 
 public class SchemeHeader {
 	@Id
-	@Column(name = "Header_ID",length=11)
+	@Column(name = "Header_Id",length=11)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int schemeId;
 	
-	@Column(name = "Scheme_No",length=30)
-	private String schemNumb;
+	@Column(name = "Sales_Doc_Type",length=4)
+	private String salesDocType;
 	
 	@Column(name = "Scheme_Category",length=30)
 	private String schemCategory;
@@ -29,96 +33,11 @@ public class SchemeHeader {
 	@Column(name = "Scheme_Type",length=30)
 	private String schemType;
 	
-	@Column(name = "Business_Area",length=4)
-	private String buisnessArea;
+	@Column(name = "Order_No",length=30)
+	private String OrderNo;
 	
-	@Column(name = "Scheme_Category",length=30)
-    private String paymentMethod;
-
-	@Column(name = "Scheme_Category",length=30)
-    private String profitCenter;
-		
-	@Column(name = "GL_Account",length=10)
-    private String glAccount;
-	
-	@Column(name = "Scheme_Category",length=30)
-    private String costCenter;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "From_Date")
-	private Date fromDate;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "To_Date")
-	private Date toDate;
-	
-	@Column(name = "Active",length=4)
-	private String active;
-	
-	@Column(name = "Exclude_CST_Sale",length=30)
-	private String excCstScale;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String billingType;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String salesOffice;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String salesGrp;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String plant;
-	@Column(name = "Scheme_Category",length=30)
-	private String salesDistrict;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String cityCode;
-	@Column(name = "Scheme_Category",length=30)
-	private String customerGrp;
-	@Column(name = "Scheme_Category",length=30)
-	private String customer;
-	@Column(name = "Scheme_Category",length=30)
-	private String shoppingCondition;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String materialGroup;
-	@Column(name = "Scheme_Category",length=30)
-	private String material;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String compName;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String soName;
-	@Column(name = "Scheme_Category",length=30)
-	private String dchlName;
-	@Column(name = "Scheme_Category",length=30)
-	private String regionName;
-	@Column(name = "Scheme_Category",length=30)
-	private String divName;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String countryCode;
-	
-	@Column(name = "Prev_From_Date",length=10)
-	private String prevfromDate;
-	
-	@Column(name = "Prev_To_Date",length=10)
-	private String prevToDate;
-	
-	@Column(name = "Scheme_Category",length=30)
-	private String paymentInstrumentType;
-	
-	
-	@Column(name = "Cost_Center",length=10)
-	private String costCenter;
-	
-	@Column(name = "Sales_Doc_Type",length=4)
-	private String salesDocType;
-	
-	@Column(name = "Order_No",length=12)
-	private String orderNo;
+	@Column(name = "Scheme_No",length=30)
+	private String schemNumb;
 	
 	@Column(name = "Price_List",length=4)
 	private String priceList;
@@ -129,17 +48,53 @@ public class SchemeHeader {
 	@Column(name = "Tax_COde",length=4)
 	private String taxCode;
 	
-	@Column(name = "Budget_Refference_no",length=12)
-	private String budgetReferenceNo;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "From_Date")
+	private Date fromDate;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "To_Date")
+	private Date toDate;
+	
+	@Column(name = "GL_Account",length=10)
+    private String glAccount;
+	
+	@Column(name = "Budget_Reference_No",length=12)
+    private String budgetReferenceNo;
+	
 	
 	@Column(name = "Business_Place",length=4)
 	private String businessPlace;
 	
-	@Column(name = "SingleCharacter_Ind",length=4)
-	private String singleCharacterInd;
 	
-	@Column(name = "SAP_NonSAP_Data",length=4)
-	private String sapNonSapData;
+	@Column(name = "Active",length=4)
+	private String active;
+	
+	@Column(name = "Exclusive_CST_Sale",length=4)
+	private String exclusiveCSTSale;
+	
+	@Column(name = "Single_Charecter_Ind",length=4)
+	private String singleCharecterInd;
+	
+	
+	@Column(name = "SAP_NonSAP_Date",length=4)
+	private String sapNonSapDate;
+	
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "Prev_From_Date")
+	private Date prevfromDate;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "Prev_To_Date")
+	private Date prevToDate;
+	
+	@Column(name = "Cost_Center",length=10)
+    private String costCenter;
+	
+	@Column(name = "Business_Area",length=4)
+	private String buisnessArea;
+	
 	
 	@Column(name = "Created_By",length=12)
 	private String createdBy;
@@ -149,6 +104,17 @@ public class SchemeHeader {
 	
 	@Column(name = "Approve_Status",length=45)
 	private String approveStatus;
+	
+	
+	
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
+    private List<SchemeHeaderDetail> schemeHeaderDetail;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
+    private List<SchemeHeaderCond> schemeHeaderCond;
+	////////
 
 	public int getSchemeId() {
 		return schemeId;
@@ -158,12 +124,12 @@ public class SchemeHeader {
 		this.schemeId = schemeId;
 	}
 
-	public String getSchemNumb() {
-		return schemNumb;
+	public String getSalesDocType() {
+		return salesDocType;
 	}
 
-	public void setSchemNumb(String schemNumb) {
-		this.schemNumb = schemNumb;
+	public void setSalesDocType(String salesDocType) {
+		this.salesDocType = salesDocType;
 	}
 
 	public String getSchemCategory() {
@@ -182,92 +148,20 @@ public class SchemeHeader {
 		this.schemType = schemType;
 	}
 
-	public String getBuisnessArea() {
-		return buisnessArea;
-	}
-
-	public void setBuisnessArea(String buisnessArea) {
-		this.buisnessArea = buisnessArea;
-	}
-
-	public String getGlAccount() {
-		return glAccount;
-	}
-
-	public void setGlAccount(String glAccount) {
-		this.glAccount = glAccount;
-	}
-
-	public Date getFromDate() {
-		return fromDate;
-	}
-
-	public void setFromDate(Date fromDate) {
-		this.fromDate = fromDate;
-	}
-
-	public Date getToDate() {
-		return toDate;
-	}
-
-	public void setToDate(Date toDate) {
-		this.toDate = toDate;
-	}
-
-	public String getActive() {
-		return active;
-	}
-
-	public void setActive(String active) {
-		this.active = active;
-	}
-
-	public String getExcCstScale() {
-		return excCstScale;
-	}
-
-	public void setExcCstScale(String excCstScale) {
-		this.excCstScale = excCstScale;
-	}
-
-	public String getPrevfromDate() {
-		return prevfromDate;
-	}
-
-	public void setPrevfromDate(String prevfromDate) {
-		this.prevfromDate = prevfromDate;
-	}
-
-	public String getPrevToDate() {
-		return prevToDate;
-	}
-
-	public void setPrevToDate(String prevToDate) {
-		this.prevToDate = prevToDate;
-	}
-
-	public String getCostCenter() {
-		return costCenter;
-	}
-
-	public void setCostCenter(String costCenter) {
-		this.costCenter = costCenter;
-	}
-
-	public String getSalesDocType() {
-		return salesDocType;
-	}
-
-	public void setSalesDocType(String salesDocType) {
-		this.salesDocType = salesDocType;
-	}
-
 	public String getOrderNo() {
-		return orderNo;
+		return OrderNo;
 	}
 
 	public void setOrderNo(String orderNo) {
-		this.orderNo = orderNo;
+		OrderNo = orderNo;
+	}
+
+	public String getSchemNumb() {
+		return schemNumb;
+	}
+
+	public void setSchemNumb(String schemNumb) {
+		this.schemNumb = schemNumb;
 	}
 
 	public String getPriceList() {
@@ -294,6 +188,30 @@ public class SchemeHeader {
 		this.taxCode = taxCode;
 	}
 
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+
+	public Date getToDate() {
+		return toDate;
+	}
+
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
+
+	public String getGlAccount() {
+		return glAccount;
+	}
+
+	public void setGlAccount(String glAccount) {
+		this.glAccount = glAccount;
+	}
+
 	public String getBudgetReferenceNo() {
 		return budgetReferenceNo;
 	}
@@ -310,20 +228,68 @@ public class SchemeHeader {
 		this.businessPlace = businessPlace;
 	}
 
-	public String getSingleCharacterInd() {
-		return singleCharacterInd;
+	public String getActive() {
+		return active;
 	}
 
-	public void setSingleCharacterInd(String singleCharacterInd) {
-		this.singleCharacterInd = singleCharacterInd;
+	public void setActive(String active) {
+		this.active = active;
 	}
 
-	public String getSapNonSapData() {
-		return sapNonSapData;
+	public String getExclusiveCSTSale() {
+		return exclusiveCSTSale;
 	}
 
-	public void setSapNonSapData(String sapNonSapData) {
-		this.sapNonSapData = sapNonSapData;
+	public void setExclusiveCSTSale(String exclusiveCSTSale) {
+		this.exclusiveCSTSale = exclusiveCSTSale;
+	}
+
+	public String getSingleCharecterInd() {
+		return singleCharecterInd;
+	}
+
+	public void setSingleCharecterInd(String singleCharecterInd) {
+		this.singleCharecterInd = singleCharecterInd;
+	}
+
+	public String getSapNonSapDate() {
+		return sapNonSapDate;
+	}
+
+	public void setSapNonSapDate(String sapNonSapDate) {
+		this.sapNonSapDate = sapNonSapDate;
+	}
+
+	public Date getPrevfromDate() {
+		return prevfromDate;
+	}
+
+	public void setPrevfromDate(Date prevfromDate) {
+		this.prevfromDate = prevfromDate;
+	}
+
+	public Date getPrevToDate() {
+		return prevToDate;
+	}
+
+	public void setPrevToDate(Date prevToDate) {
+		this.prevToDate = prevToDate;
+	}
+
+	public String getCostCenter() {
+		return costCenter;
+	}
+
+	public void setCostCenter(String costCenter) {
+		this.costCenter = costCenter;
+	}
+
+	public String getBuisnessArea() {
+		return buisnessArea;
+	}
+
+	public void setBuisnessArea(String buisnessArea) {
+		this.buisnessArea = buisnessArea;
 	}
 
 	public String getCreatedBy() {
@@ -349,8 +315,24 @@ public class SchemeHeader {
 	public void setApproveStatus(String approveStatus) {
 		this.approveStatus = approveStatus;
 	}
-	
 
+	public List<SchemeHeaderDetail> getSchemeHeaderDetail() {
+		return schemeHeaderDetail;
+	}
+
+	public void setSchemeHeaderDetail(List<SchemeHeaderDetail> schemeHeaderDetail) {
+		this.schemeHeaderDetail = schemeHeaderDetail;
+	}
+
+	public List<SchemeHeaderCond> getSchemeHeaderCond() {
+		return schemeHeaderCond;
+	}
+
+	public void setSchemeHeaderCond(List<SchemeHeaderCond> schemeHeaderCond) {
+		this.schemeHeaderCond = schemeHeaderCond;
+	}
+	
+	
+	
 	
 }
-*/
