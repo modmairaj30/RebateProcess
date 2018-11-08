@@ -13,15 +13,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dalmia.dce.vo.BillingTypeVO;
+import com.dalmia.dce.vo.BusinessAreaVO;
 import com.dalmia.dce.vo.CityCodeVO;
 import com.dalmia.dce.vo.CompanyCodesVO;
-import com.dalmia.dce.vo.CustomerVO;
+import com.dalmia.dce.vo.CostCenterVO;
+import com.dalmia.dce.vo.CountryCodeVO;
 import com.dalmia.dce.vo.CustomerGroupVO;
+import com.dalmia.dce.vo.CustomerVO;
 import com.dalmia.dce.vo.DistributionChannelVO;
 import com.dalmia.dce.vo.DivisionVO;
-import com.dalmia.dce.vo.MaterialVO;
+import com.dalmia.dce.vo.GLAccountVO;
 import com.dalmia.dce.vo.MaterialGroupVO;
+import com.dalmia.dce.vo.MaterialVO;
+import com.dalmia.dce.vo.PaymentInsurenceTypeVO;
 import com.dalmia.dce.vo.PlantVO;
+import com.dalmia.dce.vo.ProfitCenterVO;
 import com.dalmia.dce.vo.RegionVO;
 import com.dalmia.dce.vo.SalesDistrictVO;
 import com.dalmia.dce.vo.SalesGroupVO;
@@ -43,7 +49,7 @@ public class ShemCreationDetailDao {
 	
 	public Map<String, SalesOrganizationVO> getSalesOrg() throws SQLException {
 		
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,SalesOrganizationVO> salesOrgMap = new LinkedHashMap<String,SalesOrganizationVO>();
 		String sql = "select SOrg,Name from sdms.sales_organization";
 		//connect();
@@ -64,11 +70,12 @@ public class ShemCreationDetailDao {
 		resultSet.close();
 		statement.close();
 		//disconnect();
+		jdbcConnection.close();
 		return salesOrgMap;
 	}
 	
 	public Map<String,SalesDistrictVO> getSalesDistrict() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,SalesDistrictVO> salesDistrictMap = new LinkedHashMap<String,SalesDistrictVO>();
 		String sql = "select SDst,District_Name from sales_district";
 		//connect();
@@ -89,11 +96,12 @@ public class ShemCreationDetailDao {
 		resultSet.close();
 		statement.close();
 		//disconnect();
+		jdbcConnection.close();
 		return salesDistrictMap;
 	}
 	
 	public Map<String,CompanyCodesVO> getComp() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,CompanyCodesVO> compMap = new LinkedHashMap<String,CompanyCodesVO>();
 		String sql = "select CoCd,Company_Name from company_codes";
 		//connect();
@@ -111,11 +119,12 @@ public class ShemCreationDetailDao {
 		
 		resultSet.close();
 		statement.close();
+		jdbcConnection.close();
 		return compMap;
 	}
 	
 	public Map<String,SchemeUniverseVO> getSchemUnverse() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String, SchemeUniverseVO> schemUnivMap = new LinkedHashMap<String,SchemeUniverseVO>();
 		String sql = "select Business_Name,Field_Type from scheme_universe order by Business_Name";
 		//connect();
@@ -135,13 +144,14 @@ public class ShemCreationDetailDao {
 		
 		resultSet.close();
 		statement.close();
+		jdbcConnection.close();
 		return schemUnivMap;
 	}
 
 	//
 	
 	public Map<String,DistributionChannelVO> getDistbChanel() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,DistributionChannelVO> distChanelMap = new LinkedHashMap<String,DistributionChannelVO>();
 		String sql = "select DChl,Name from distribution_channel";
 		//connect();
@@ -160,13 +170,14 @@ public class ShemCreationDetailDao {
 		}
 		resultSet.close();
 		statement.close();
+		jdbcConnection.close();
 		return distChanelMap;
 	}
 
 	
 	public Map<String,DivisionVO> getDivision() throws SQLException {
 		Map<String,DivisionVO> divisionMap = new LinkedHashMap<String,DivisionVO>();
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		String sql = "select Dv,Name from division";
 		//connect();
 		Statement statement = jdbcConnection.createStatement();
@@ -183,11 +194,12 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return divisionMap;
 }
 //select BillT,Description from billing_type
 	public Map<String,BillingTypeVO> getBilling() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,BillingTypeVO> billingMap = new LinkedHashMap<String,BillingTypeVO>();
 		String sql = "select BT_id,Description from billing_type";
 		//connect();
@@ -205,12 +217,13 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return billingMap;
 }
 	
 	//
 	public Map<String,SalesOfficeVO> getSalesOffice() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,SalesOfficeVO> salesOfficeMap = new LinkedHashMap<String,SalesOfficeVO>();
 		String sql = "select SOff,Description from sales_office";
 		//connect();
@@ -228,11 +241,12 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return salesOfficeMap;
 }
 //
 	public Map<String,SalesGroupVO> getSalesGroup() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,SalesGroupVO> salesGroupMap = new LinkedHashMap<String,SalesGroupVO>();
 		String sql = "select SGrp,Description from sales_group";
 		//connect();
@@ -249,11 +263,12 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return salesGroupMap;
 }
 	
 	public Map<String,RegionVO> getRegion() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,RegionVO> regionMap = new LinkedHashMap<String,RegionVO>();
 		String sql = "select Rg,Description from region";
 		//connect();
@@ -270,11 +285,12 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return regionMap;
 }
 //
 	public Map<String,CityCodeVO> getCity() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,CityCodeVO> cityMap = new LinkedHashMap<String,CityCodeVO>();
 		String sql = "SELECT city_id,Description FROM city_code";
 		//connect();
@@ -291,11 +307,12 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return cityMap;
 }
 	//
 	public Map<String,CustomerGroupVO> getCustmGrp() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,CustomerGroupVO> customerGrpMap = new LinkedHashMap<String,CustomerGroupVO>();
 		String sql = "select CGrp,Name from customer_group";
 		//connect();
@@ -312,11 +329,12 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return customerGrpMap;
 }
 //
 	public Map<String,CustomerVO> getCustomer() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,CustomerVO> customerMap = new LinkedHashMap<String,CustomerVO>();
 		String sql = "SELECT Customer,Name1 FROM customer";
 		//connect();
@@ -334,11 +352,12 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return customerMap;
 }
 	//
 	public Map<String,ShippingConditionsVO> getShippingCondition() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,ShippingConditionsVO> shippingConditionMap = new LinkedHashMap<String,ShippingConditionsVO>();
 		String sql = "select SC,Description from shipping_conditions";
 		//connect();
@@ -355,10 +374,11 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return shippingConditionMap;
 }
 	public Map<String,MaterialGroupVO> getMaterialGrp() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,MaterialGroupVO> materialGrpMap = new LinkedHashMap<String,MaterialGroupVO>();
 		String sql = "select Matl_Group,Material_Group_Desc from material_group";
 		//connect();
@@ -380,7 +400,7 @@ public class ShemCreationDetailDao {
   //
 	
 	public Map<String,MaterialVO> getMaterial() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,MaterialVO> materialMap = new LinkedHashMap<String,MaterialVO>();
 		String sql = "select Material,Material_Description from material";
 		//connect();
@@ -397,11 +417,122 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return materialMap;
 }
+	public Map<String,CostCenterVO> getCostCenter() throws SQLException {
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,CostCenterVO> costCenterMap = new LinkedHashMap<String,CostCenterVO>();
+		String sql = "select COAr,Cost_Ctr,Name,CoCd from cost_center";
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+			CostCenterVO costCenterVO = new CostCenterVO();
+			costCenterVO.setCoar(resultSet.getString("COAr"));
+			String coAR = resultSet.getString("COAr");
+			costCenterVO.setCostCtr(resultSet.getString("Cost_Ctr")); 
+			//costCenterVO.setToDate(resultSet.getString("Material_Description")); 
+			costCenterVO.setName(resultSet.getString("Name")); 
+			costCenterVO.setCoCd(resultSet.getString("CoCd")); 
+			costCenterMap.put(coAR, costCenterVO);
+			
+		}
 	
+	resultSet.close();
+	statement.close();
+	jdbcConnection.close();
+	return costCenterMap;
+}
+
+	public Map<String,BusinessAreaVO> getBusinessArea() throws SQLException {
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,BusinessAreaVO> busAreaMap = new LinkedHashMap<String,BusinessAreaVO>();
+		String sql = "select BusA,Description from business_area";
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+			BusinessAreaVO busAreaVO = new BusinessAreaVO();
+			busAreaVO.setBusinessArea(resultSet.getString("BusA"));
+			String businessArea = resultSet.getString("BusA");
+			busAreaVO.setDescription(resultSet.getString("Description")); 
+			busAreaMap.put(businessArea, busAreaVO);
+			
+		}
+	
+	resultSet.close();
+	statement.close();
+	jdbcConnection.close();
+	return busAreaMap;
+}
+	
+	public Map<String,ProfitCenterVO> getProfitCenter() throws SQLException {
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,ProfitCenterVO> profitCenterMap = new LinkedHashMap<String,ProfitCenterVO>();
+		String sql = "select Profit_Ctr,Name from profit_center";
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+			ProfitCenterVO profCentVO = new ProfitCenterVO();
+			profCentVO.setName(resultSet.getString("Name"));
+			String prftCntr = resultSet.getString("Profit_Ctr");
+			profCentVO.setProfitCenter(resultSet.getString("Profit_Ctr")); 
+			profitCenterMap.put(prftCntr, profCentVO);
+			
+		}
+	
+	resultSet.close();
+	statement.close();
+	jdbcConnection.close();
+	return profitCenterMap;
+}
+
+	public Map<String,PaymentInsurenceTypeVO> getPaymentInsType() throws SQLException {
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,PaymentInsurenceTypeVO> payInsTypeMap = new LinkedHashMap<String,PaymentInsurenceTypeVO>();
+		String sql = "select F0002 from payment_insurance_type";
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+			PaymentInsurenceTypeVO payInsTypeVO = new PaymentInsurenceTypeVO();
+			payInsTypeVO.setF0002(resultSet.getString("F0002"));
+			String f0002 = resultSet.getString("F0002"); 
+			payInsTypeMap.put(f0002, payInsTypeVO);
+			
+		}
+	
+	resultSet.close();
+	statement.close();
+	jdbcConnection.close();
+	return payInsTypeMap;
+}
+	
+	public Map<String,GLAccountVO> getGlAccount() throws SQLException {
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,GLAccountVO> glAcctMap = new LinkedHashMap<String,GLAccountVO>();
+		String sql = "select GL_Acct, Ch_Ac, Long_Text from gl_account_number";
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+			GLAccountVO glAccVO = new GLAccountVO();
+			glAccVO.setGlAccount(resultSet.getString("GL_Acct"));
+			glAccVO.setChAccount(resultSet.getString("Ch_Ac"));
+			glAccVO.setLongText(resultSet.getString("Long_Text"));
+			String GLAcct = resultSet.getString("GL_Acct"); 
+			glAcctMap.put(GLAcct, glAccVO);
+			
+		}
+	
+	resultSet.close();
+	statement.close();
+	return glAcctMap;
+}
 	public Map<String,PlantVO> getPlant() throws SQLException {
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,PlantVO> plantMap = new LinkedHashMap<String,PlantVO>();
 		String sql = "SELECT plant_id,Name1 FROM plant";
 		//connect();
@@ -418,13 +549,38 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return plantMap;
+}
+
+	public Map<String,CountryCodeVO> getCountryCode() throws SQLException {
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,CountryCodeVO> countryCodeMap = new LinkedHashMap<String,CountryCodeVO>();
+		String sql = "SELECT Ctr, Rg, Ccd, Description, CoCd FROM county_code";
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+			CountryCodeVO countryCodeVO = new CountryCodeVO();
+			String plantId = resultSet.getString("Ctr");
+			countryCodeVO.setCtr(resultSet.getString("Ctr"));
+			countryCodeVO.setCcd(resultSet.getString("Ccd"));
+			countryCodeVO.setRg(resultSet.getString("Rg"));
+			countryCodeVO.setDescription(resultSet.getString("Description"));
+			countryCodeMap.put(plantId, countryCodeVO);
+			
+		}
+	
+	resultSet.close();
+	statement.close();
+	jdbcConnection.close();
+	return countryCodeMap;
 }
 
 	
 	public ViewSchemCreationVO getViewSchemCreation() throws SQLException {
 
-		jdbcConnection = dataSource.getConnection();
+		Connection jdbcConnection = dataSource.getConnection();
 		ViewSchemCreationVO viewSchemCreation = new ViewSchemCreationVO();
 		String sql = "select Company_Code,scheme_No,Scheme_Category,Scheme_Type,From_Date,To_Date,Active,Exclude_CST_Sale,Sales_Org,"
                 +"Distrbution_Channel,Division,Billing_Type,Sales_Office,Sales_Group,Plant,Region,Sales_District,"
@@ -670,6 +826,7 @@ public class ShemCreationDetailDao {
 	
 	resultSet.close();
 	statement.close();
+	jdbcConnection.close();
 	return viewSchemCreation;
 }
 }

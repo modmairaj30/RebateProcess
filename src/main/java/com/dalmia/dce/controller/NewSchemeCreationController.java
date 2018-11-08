@@ -11,15 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dalmia.dce.dao.ShemCreationDetailDao;
 import com.dalmia.dce.vo.BillingTypeVO;
+import com.dalmia.dce.vo.BusinessAreaVO;
 import com.dalmia.dce.vo.CityCodeVO;
 import com.dalmia.dce.vo.CompanyCodesVO;
+import com.dalmia.dce.vo.CostCenterVO;
+import com.dalmia.dce.vo.CountryCodeVO;
 import com.dalmia.dce.vo.CustomerGroupVO;
 import com.dalmia.dce.vo.CustomerVO;
 import com.dalmia.dce.vo.DistributionChannelVO;
 import com.dalmia.dce.vo.DivisionVO;
+import com.dalmia.dce.vo.GLAccountVO;
 import com.dalmia.dce.vo.MaterialGroupVO;
 import com.dalmia.dce.vo.MaterialVO;
+import com.dalmia.dce.vo.PaymentInsurenceTypeVO;
 import com.dalmia.dce.vo.PlantVO;
+import com.dalmia.dce.vo.ProfitCenterVO;
 import com.dalmia.dce.vo.RegionVO;
 import com.dalmia.dce.vo.SalesDistrictVO;
 import com.dalmia.dce.vo.SalesGroupVO;
@@ -224,6 +230,72 @@ public class NewSchemeCreationController {
     public Map<String, PlantVO> getPlant() {
         try {
 			return  schemcreationDetaiDao.getPlant();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
+	
+	@GetMapping(value = "/getProfitCenter")
+    public Map<String, ProfitCenterVO> getProfitCenter() {
+        try {
+			return  schemcreationDetaiDao.getProfitCenter();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
+	
+	@GetMapping(value = "/getBusinessArea")
+    public Map<String, BusinessAreaVO> getBusinessArea() {
+        try {
+			return  schemcreationDetaiDao.getBusinessArea();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
+	
+	@GetMapping(value = "/getPaymentInsType")
+    public Map<String, PaymentInsurenceTypeVO> getPaymentInsType() {
+        try {
+			return  schemcreationDetaiDao.getPaymentInsType();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
+	
+	@GetMapping(value = "/getGlAccount")
+    public Map<String, GLAccountVO> getGlAccount() {
+        try {
+			return  schemcreationDetaiDao.getGlAccount();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
+	
+	@GetMapping(value = "/getCostCenter")
+    public Map<String, CostCenterVO> getCostCenter() {
+        try {
+			return  schemcreationDetaiDao.getCostCenter();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
+	
+	@GetMapping(value = "/getCountryCode")
+    public Map<String, CountryCodeVO> getCountryCode() {
+        try {
+			return  schemcreationDetaiDao.getCountryCode();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
