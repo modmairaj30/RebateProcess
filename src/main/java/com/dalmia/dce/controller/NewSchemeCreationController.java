@@ -43,7 +43,7 @@ public class NewSchemeCreationController {
 	@Autowired
 	ShemCreationDetailDao schemcreationDetaiDao;
 
-	@GetMapping(value = "/getSchemeMetadata")
+	@GetMapping(value = "/getSalesOrg")
 	public Map<String, SalesOrganizationVO> getAllSchemes() {
 		try {
 			return schemcreationDetaiDao.getSalesOrg();

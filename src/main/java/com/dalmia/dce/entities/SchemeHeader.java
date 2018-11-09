@@ -111,9 +111,9 @@ public class SchemeHeader {
     @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
     private List<SchemeHeaderDetail> schemeHeaderDetail;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	/*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
-    private List<SchemeHeaderCond> schemeHeaderCond;
+    private List<SchemeHeaderCond> schemeHeaderCond;*/
 	////////
 
 	public int getSchemeId() {
@@ -324,14 +324,14 @@ public class SchemeHeader {
 		this.schemeHeaderDetail = schemeHeaderDetail;
 	}
 
-	public List<SchemeHeaderCond> getSchemeHeaderCond() {
+	/*public List<SchemeHeaderCond> getSchemeHeaderCond() {
 		return schemeHeaderCond;
 	}
 
 	public void setSchemeHeaderCond(List<SchemeHeaderCond> schemeHeaderCond) {
 		this.schemeHeaderCond = schemeHeaderCond;
 	}
-	
+	*/
 	
 	
 	
