@@ -3,7 +3,6 @@ package com.dalmia.dce.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import com.dalmia.dce.repositories.SchemeHeaderRepository;
 import com.dalmia.dce.utilities.RangeCalculationUtil;
 import com.dalmia.dce.utilities.RangeObject;
 import com.dalmia.dce.vo.SchemeHeaderCondVO;
-import com.dalmia.dce.vo.SchemeHeaderDetailVO;
 import com.dalmia.dce.vo.SchemeHeaderVO;
 import com.dalmia.dce.vo.StatusVO;
 
@@ -26,7 +24,8 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 	
 	@Autowired
 	SchemeHeaderRepository schemeHeaderRepository;
-	
+	@Autowired
+	RangeCalculationUtil 	rangeCalculationUtil;
 	@Override
 	public List<SchemeHeaderVO> getSchemeHeader() {
 	List<SchemeHeader> lsh=	schemeHeaderRepository.findAll();
@@ -74,7 +73,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getCompanyCode().getRange());
 			rangeObj.setValues(shVO.getCompanyCode().getValues());
 			rangeObj.setExcludeValues(shVO.getCompanyCode().getExcludeValues());
-			Map<String,String> compCodeMap = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> compCodeMap = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : compCodeMap.keySet()) 
 			{ 				 
@@ -93,7 +92,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getSalesOrg().getRange());
 			rangeObj.setValues(shVO.getSalesOrg().getValues());
 			rangeObj.setExcludeValues(shVO.getSalesOrg().getExcludeValues());
-			Map<String,String> salesOrgMap = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> salesOrgMap = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : salesOrgMap.keySet()) 
 			{ 				 
@@ -110,11 +109,10 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			if(shVO.getDistributionChannel()!=null) {
 			rangeObj.setProperty(shVO.getDistributionChannel().getSchKeyName());
 			rangeObj.setType(shVO.getDistributionChannel().getType());
-			rangeObj.setType(shVO.getDistributionChannel().getType());
 			rangeObj.setRange(shVO.getDistributionChannel().getRange());
 			rangeObj.setValues(shVO.getDistributionChannel().getValues());
 			rangeObj.setExcludeValues(shVO.getDistributionChannel().getExcludeValues());
-			Map<String,String> dbChMap = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> dbChMap = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : dbChMap.keySet()) 
 			{ 				 
@@ -133,7 +131,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getDivision().getRange());
 			rangeObj.setValues(shVO.getDivision().getValues());
 			rangeObj.setExcludeValues(shVO.getDivision().getExcludeValues());
-			Map<String,String> getDivisionMap = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getDivisionMap = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getDivisionMap.keySet()) 
 			{ 				 
@@ -152,7 +150,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getSalseOffice().getRange());
 			rangeObj.setValues(shVO.getSalseOffice().getValues());
 			rangeObj.setExcludeValues(shVO.getSalseOffice().getExcludeValues());
-			Map<String,String> getSalseOfficeMap = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getSalseOfficeMap = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getSalseOfficeMap.keySet()) 
 			{ 				 
@@ -171,7 +169,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getSalesGroup().getRange());
 			rangeObj.setValues(shVO.getSalesGroup().getValues());
 			rangeObj.setExcludeValues(shVO.getSalesGroup().getExcludeValues());
-			Map<String,String> getSalesGroupMap = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getSalesGroupMap = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getSalesGroupMap.keySet()) 
 			{ 				 
@@ -190,7 +188,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getSalseDistrict().getRange());
 			rangeObj.setValues(shVO.getSalseDistrict().getValues());
 			rangeObj.setExcludeValues(shVO.getSalseDistrict().getExcludeValues());
-			Map<String,String> getSalseDistrict = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getSalseDistrict = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getSalseDistrict.keySet()) 
 			{ 				 
@@ -209,7 +207,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getRegion().getRange());
 			rangeObj.setValues(shVO.getRegion().getValues());
 			rangeObj.setExcludeValues(shVO.getRegion().getExcludeValues());
-			Map<String,String> getRegion = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getRegion = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getRegion.keySet()) 
 			{ 				 
@@ -228,7 +226,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getCountryCode().getRange());
 			rangeObj.setValues(shVO.getCountryCode().getValues());
 			rangeObj.setExcludeValues(shVO.getCountryCode().getExcludeValues());
-			Map<String,String> getCountryCode = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getCountryCode = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getCountryCode.keySet()) 
 			{ 				 
@@ -247,7 +245,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getCityCode().getRange());
 			rangeObj.setValues(shVO.getCityCode().getValues());
 			rangeObj.setExcludeValues(shVO.getCityCode().getExcludeValues());
-			Map<String,String> getCityCode = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getCityCode = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getCityCode.keySet()) 
 			{ 				 
@@ -266,7 +264,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getCustomer().getRange());
 			rangeObj.setValues(shVO.getCustomer().getValues());
 			rangeObj.setExcludeValues(shVO.getCustomer().getExcludeValues());
-			Map<String,String> getCustomer = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getCustomer = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getCustomer.keySet()) 
 			{ 				 
@@ -285,7 +283,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getCustomerGroup().getRange());
 			rangeObj.setValues(shVO.getCustomerGroup().getValues());
 			rangeObj.setExcludeValues(shVO.getCustomerGroup().getExcludeValues());
-			Map<String,String> getCustomerGroup = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getCustomerGroup = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getCustomerGroup.keySet()) 
 			{ 				 
@@ -304,7 +302,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getMaterial().getRange());
 			rangeObj.setValues(shVO.getMaterial().getValues());
 			rangeObj.setExcludeValues(shVO.getMaterial().getExcludeValues());
-			Map<String,String> getMaterial = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getMaterial = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getMaterial.keySet()) 
 			{ 				 
@@ -323,7 +321,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getMaterialGroup().getRange());
 			rangeObj.setValues(shVO.getMaterialGroup().getValues());
 			rangeObj.setExcludeValues(shVO.getMaterialGroup().getExcludeValues());
-			Map<String,String> getMaterialGroup = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getMaterialGroup = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getMaterialGroup.keySet()) 
 			{ 				 
@@ -342,7 +340,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getPlant().getRange());
 			rangeObj.setValues(shVO.getPlant().getValues());
 			rangeObj.setExcludeValues(shVO.getPlant().getExcludeValues());
-			Map<String,String> getPlant = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getPlant = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getPlant.keySet()) 
 			{ 				 
@@ -361,7 +359,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getShippingCond().getRange());
 			rangeObj.setValues(shVO.getShippingCond().getValues());
 			rangeObj.setExcludeValues(shVO.getShippingCond().getExcludeValues());
-			Map<String,String> getShippingCond = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getShippingCond = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getShippingCond.keySet()) 
 			{ 				 
@@ -380,7 +378,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getPaymentMethod().getRange());
 			rangeObj.setValues(shVO.getPaymentMethod().getValues());
 			rangeObj.setExcludeValues(shVO.getPaymentMethod().getExcludeValues());
-			Map<String,String> getPaymentMethod = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getPaymentMethod = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getPaymentMethod.keySet()) 
 			{ 				 
@@ -399,7 +397,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getBillingType().getRange());
 			rangeObj.setValues(shVO.getBillingType().getValues());
 			rangeObj.setExcludeValues(shVO.getBillingType().getExcludeValues());
-			Map<String,String> getBillingType = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getBillingType = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getBillingType.keySet()) 
 			{ 				 
@@ -418,7 +416,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getProfitCenter().getRange());
 			rangeObj.setValues(shVO.getProfitCenter().getValues());
 			rangeObj.setExcludeValues(shVO.getProfitCenter().getExcludeValues());
-			Map<String,String> getProfitCenter = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getProfitCenter = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getProfitCenter.keySet()) 
 			{ 				 
@@ -437,7 +435,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getCostCenter().getRange());
 			rangeObj.setValues(shVO.getCostCenter().getValues());
 			rangeObj.setExcludeValues(shVO.getCostCenter().getExcludeValues());
-			Map<String,String> getCostCenter = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getCostCenter = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getCostCenter.keySet()) 
 			{ 				 
@@ -456,7 +454,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getBuisnessArea().getRange());
 			rangeObj.setValues(shVO.getBuisnessArea().getValues());
 			rangeObj.setExcludeValues(shVO.getBuisnessArea().getExcludeValues());
-			Map<String,String> getBuisnessArea = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<String,String> getBuisnessArea = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (String sch_values : getBuisnessArea.keySet()) 
 			{ 				 
@@ -475,7 +473,7 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			rangeObj.setRange(shVO.getGlAccount().getRange());
 			rangeObj.setValues(shVO.getGlAccount().getValues());
 			rangeObj.setExcludeValues(shVO.getGlAccount().getExcludeValues());
-			Map<Integer,String> getGlAccount = RangeCalculationUtil.rangeCalculation(rangeObj);
+			Map<Integer,String> getGlAccount = rangeCalculationUtil.rangeCalculation(rangeObj);
 						
 			for (Integer sch_values : getGlAccount.keySet()) 
 			{ 				 
@@ -493,8 +491,8 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			SchemeHeaderCond obj_tar = new SchemeHeaderCond();
 			BeanUtils.copyProperties(obj_src, obj_tar);
 			lshc.add(obj_tar);
-		}*/
-		
+		}
+		*/
 		sh.setSchemeHeaderDetail(lshd);
 		//sh.setSchemeHeaderCond(lshc);
 

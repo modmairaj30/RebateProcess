@@ -41,7 +41,6 @@ public class SchemeHeaderCondVO {
 	private double c5To;
 
 	private double c5Value;
-	///
 
 	public int getSchemeHdrCondId() {
 		return schemeHdrCondId;

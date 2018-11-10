@@ -1,6 +1,7 @@
 package com.dalmia.dce.vo;
 
 import java.util.Date;
+import java.util.List;
 
 public class SchemeHeaderVO {
 
@@ -48,6 +49,15 @@ public class SchemeHeaderVO {
 
 	private String createdOn;
 	
+	private List HeaderDetailsCondVO;
+	
+	
+	public List getHeaderDetailsCondVO() {
+		return HeaderDetailsCondVO;
+	}
+	public void setHeaderDetailsCondVO(List headerDetailsCondVO) {
+		HeaderDetailsCondVO = headerDetailsCondVO;
+	}
 	private CompanyCodesVO companyCode;
 	
 	private SalesOrganizationVO salesOrg; 

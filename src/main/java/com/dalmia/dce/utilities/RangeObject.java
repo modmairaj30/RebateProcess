@@ -5,7 +5,7 @@ import java.util.List;
 public class RangeObject {
 private String property;
 private String type;
-private List<Integer> range;
+private List<String> range;
 private List<String> values;
 private List<String> excludeValues;
 public String getProperty() {
@@ -14,10 +14,10 @@ public String getProperty() {
 public void setProperty(String property) {
 	this.property = property;
 }
-public List<Integer> getRange() {
+public List<String> getRange() {
 	return range;
 }
-public void setRange(List<Integer> range) {
+public void setRange(List<String> range) {
 	this.range = range;
 }
 public String getType() {

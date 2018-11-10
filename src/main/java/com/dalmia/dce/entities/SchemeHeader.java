@@ -111,9 +111,9 @@ public class SchemeHeader {
     @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
     private List<SchemeHeaderDetail> schemeHeaderDetail;
 	
-	/*@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
-    private List<SchemeHeaderCond> schemeHeaderCond;*/
+    private List<SchemeHeaderCond> schemeHeaderCond;
 	////////
 
 	public int getSchemeId() {

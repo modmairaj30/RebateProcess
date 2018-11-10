@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -33,6 +34,7 @@ import com.dalmia.dce.vo.SalesDistrictVO;
 import com.dalmia.dce.vo.SalesGroupVO;
 import com.dalmia.dce.vo.SalesOfficeVO;
 import com.dalmia.dce.vo.SalesOrganizationVO;
+import com.dalmia.dce.vo.SchemeTypeVO;
 import com.dalmia.dce.vo.SchemeUniverseVO;
 import com.dalmia.dce.vo.ShippingConditionsVO;
 import com.dalmia.dce.vo.ViewSchemCreationVO;
@@ -829,4 +831,59 @@ public class ShemCreationDetailDao {
 	jdbcConnection.close();
 	return viewSchemCreation;
 }
+	public Map<String,SchemeTypeVO> getSchemeType() throws SQLException {
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,SchemeTypeVO> countryCodeMap = new LinkedHashMap<String,SchemeTypeVO>();
+		String sql = "SELECT type, scheme_name FROM scheme_def";
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		while (resultSet.next()) {
+			SchemeTypeVO schTypeVO = new SchemeTypeVO();
+			String schType = resultSet.getString("Ctr");
+			schTypeVO.setSchemeType(resultSet.getString("Ccd"));
+			schTypeVO.setSchemeName(resultSet.getString("Ccd"));
+			countryCodeMap.put(schType, schTypeVO);
+			
+		}
+	
+	resultSet.close();
+	statement.close();
+	jdbcConnection.close();
+	return countryCodeMap;
+}
+public Map<String, String> getRange(String sch_key,String pfrom,String pto) throws SQLException {
+		
+		Connection jdbcConnection = dataSource.getConnection();
+		Map<String,String> map = new HashMap<String,String>();
+		String sql = "SELECT sch_key, table_name, field_name FROM string_keys where sch_key='"+sch_key+"'";
+		System.out.println(sql);
+		//connect();
+		Statement statement = jdbcConnection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
+		
+		Statement statement1 = jdbcConnection.createStatement();
+		
+		
+		if (resultSet.next()) {
+			
+			String table_name = resultSet.getString("table_name");
+			String field_name =  resultSet.getString("field_name");
+			String sql1="SELECT "+ field_name +" FROM  "+table_name+" WHERE  "+field_name+" BETWEEN '"+pfrom+"' AND  '"+pto+"'";
+			System.out.println(sql1);
+			ResultSet resultSet1 = statement.executeQuery(sql1);
+			while (resultSet1.next()) {
+			map.put(resultSet1.getString(field_name), sch_key);	
+			}
+			
+		}
+		
+		resultSet.close();
+		statement.close();
+		statement1.close();
+		//disconnect();
+		jdbcConnection.close();
+		return map;
+	}
+
 }

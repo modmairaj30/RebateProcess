@@ -32,6 +32,7 @@ import com.dalmia.dce.vo.SalesDistrictVO;
 import com.dalmia.dce.vo.SalesGroupVO;
 import com.dalmia.dce.vo.SalesOfficeVO;
 import com.dalmia.dce.vo.SalesOrganizationVO;
+import com.dalmia.dce.vo.SchemeTypeVO;
 import com.dalmia.dce.vo.SchemeUniverseVO;
 import com.dalmia.dce.vo.ShippingConditionsVO;
 import com.dalmia.dce.vo.ViewSchemCreationVO;
@@ -320,6 +321,17 @@ public class NewSchemeCreationController {
 
 		return category;
 
+	}
+	
+	@GetMapping(value = "/getSchemeType")
+	public Map<String, SchemeTypeVO> getSchemeType() {
+		try {
+			return schemcreationDetaiDao.getSchemeType();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
