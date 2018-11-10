@@ -1,81 +1,47 @@
-package com.dalmia.dce.entities;
+package com.dalmia.dce.vo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-//@NamedQuery(name = "User.findByName", query = "SELECT u FROM sch_header_det u WHERE LOWER(u.userName) = LOWER(?1)")
-@Table(name = "sch_hdr_cond")
-public class SchemeHeaderCond {
+public class SchemeHeaderGetConditionVO {
 	
-	@Id
-	@Column(name = "sch_hdr_cond_id",length=11)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int schemeHdrCondId;
 	
-	@Column(name = "row_id",length=11)
 	private int rowId;
 	
-	
-	@Column(name = "Header_Id")
 	private String headerId;
 	
-	@Column(name = "FROM_VALUE")
 	private double fromValue;
 	
-	@Column(name = "TO_VALUE")
 	private double toValue;
 	
-	@Column(name = "RATE")
 	private double rate;
 
-	@Column(name = "C1_FROM")
 	private double c1From;
 	
-	@Column(name = "C1_TO")
 	private double c1To;
 	
-	@Column(name = "C1_VALUE")
 	private double c1Value;
 	
-	@Column(name = "C2_FROM")
 	private double c2From;
 	
-	@Column(name = "C2_TO")
 	private double c2To;
 	
-	@Column(name = "C2_VALUE")
 	private double c2Value;
 	
-	@Column(name = "C3_FROM")
 	private double c3From;
 	
-	@Column(name = "C3_TO")
 	private double c3To;
 	
-	@Column(name = "C3_VALUE")
 	private double c3Value;
 	
-	@Column(name = "C4_FROM")
 	private double c4From;
 	
-	@Column(name = "C4_TO")
 	private double c4To;
 	
-	@Column(name = "C4_VALUE")
 	private double c4Value;
 	
-	@Column(name = "C5_FROM")
 	private double c5From;
 	
-	@Column(name = "C5_TO")
 	private double c5To;
 	
-	@Column(name = "C5_VALUE")
 	private double c5Value;
 
 	public int getSchemeHdrCondId() {

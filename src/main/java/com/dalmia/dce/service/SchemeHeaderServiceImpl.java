@@ -15,6 +15,7 @@ import com.dalmia.dce.repositories.SchemeHeaderRepository;
 import com.dalmia.dce.utilities.RangeCalculationUtil;
 import com.dalmia.dce.utilities.RangeObject;
 import com.dalmia.dce.vo.SchemeHeaderCondVO;
+import com.dalmia.dce.vo.SchemeHeaderGetVO;
 import com.dalmia.dce.vo.SchemeHeaderVO;
 import com.dalmia.dce.vo.StatusVO;
 
@@ -27,11 +28,11 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 	@Autowired
 	RangeCalculationUtil 	rangeCalculationUtil;
 	@Override
-	public List<SchemeHeaderVO> getSchemeHeader() {
+	public List<SchemeHeaderGetVO> getSchemeHeader() {
 	List<SchemeHeader> lsh=	schemeHeaderRepository.findAll();
-	List<SchemeHeaderVO> lshvo= new ArrayList<SchemeHeaderVO>();
+	List<SchemeHeaderGetVO> lshvo= new ArrayList<SchemeHeaderGetVO>();
 	for (SchemeHeader objsrc : lsh) {
-		SchemeHeaderVO objtar = new SchemeHeaderVO();
+		SchemeHeaderGetVO objtar = new SchemeHeaderGetVO();
 		BeanUtils.copyProperties(objsrc, objtar);
 		lshvo.add(objtar);
 	}
@@ -487,14 +488,92 @@ public class SchemeHeaderServiceImpl implements SchemeHeaderService{
 			}*/
 				
 		
-		/*for (SchemeHeaderCondVO obj_src : shVO.getSchemeHeaderCond()) {
+		for (SchemeHeaderCondVO obj_src : shVO.getRows()) {
 			SchemeHeaderCond obj_tar = new SchemeHeaderCond();
-			BeanUtils.copyProperties(obj_src, obj_tar);
+			if(obj_src.getSlab_value().length()>0) {
+				if(obj_src.getSlab_from().length()>0) {
+				obj_tar.setFromValue(Double.parseDouble(obj_src.getSlab_from()));
+				}
+				if(obj_src.getSlab_to().length()>0) {
+				obj_tar.setToValue(Double.parseDouble(obj_src.getSlab_to()));
+				}
+				obj_tar.setRate(Double.parseDouble(obj_src.getSlab_value()));
+				if(obj_src.getRow_id().length()>0) {
+				obj_tar.setRowId(Integer.parseInt(obj_src.getRow_id()));
+				}
+			}
+			else 
+			{
+				if(obj_src.getSlab_from().length()>0) {
+				obj_tar.setFromValue(Double.parseDouble(obj_src.getSlab_from()));
+				}
+				if(obj_src.getSlab_to().length()>0) {
+				obj_tar.setToValue(Double.parseDouble(obj_src.getSlab_to()));
+				}
+				
+				//obj_tar.setRate(Double.parseDouble(obj_src.getSlab_value()));
+				if(obj_src.getRow_id().length()>0) {
+				obj_tar.setRowId(Integer.parseInt(obj_src.getRow_id()));
+				}
+				if(obj_src.getC1().getC1_from().length()>0) {
+				obj_tar.setC1From(Double.parseDouble(obj_src.getC1().getC1_from()));
+				}
+				if(obj_src.getC1().getC1_to().length()>0) {
+				obj_tar.setC1To(Double.parseDouble(obj_src.getC1().getC1_to()));
+				}
+				if(obj_src.getC1().getC1_value().length()>0) {
+				obj_tar.setC1Value(Double.parseDouble(obj_src.getC1().getC1_value()));
+				}
+				
+				
+				if(obj_src.getC2().getC2_from().length()>0) {
+				obj_tar.setC2From(Double.parseDouble(obj_src.getC2().getC2_from()));
+				}
+				if(obj_src.getC2().getC2_to().length()>0) {
+				obj_tar.setC2To(Double.parseDouble(obj_src.getC2().getC2_to()));
+				}
+				if(obj_src.getC2().getC2_value().length()>0) {
+				obj_tar.setC2Value(Double.parseDouble(obj_src.getC2().getC2_value()));
+				}
+				
+				if(obj_src.getC3().getC3_from().length()>0) {
+				obj_tar.setC3From(Double.parseDouble(obj_src.getC3().getC3_from()));
+				}
+				if(obj_src.getC3().getC3_to().length()>0) {
+				obj_tar.setC3To(Double.parseDouble(obj_src.getC3().getC3_to()));
+				}
+				if(obj_src.getC3().getC3_value().length()>0) {
+				obj_tar.setC3Value(Double.parseDouble(obj_src.getC3().getC3_value()));
+				}
+				
+				
+				if(obj_src.getC4().getC4_from().length()>0) {
+				obj_tar.setC4From(Double.parseDouble(obj_src.getC4().getC4_from()));
+				}
+				if(obj_src.getC4().getC4_to().length()>0) {
+				obj_tar.setC4To(Double.parseDouble(obj_src.getC4().getC4_to()));
+				}
+				if(obj_src.getC4().getC4_value().length()>0) {
+				obj_tar.setC4Value(Double.parseDouble(obj_src.getC4().getC4_value()));
+				}
+				
+				
+				if(obj_src.getC5().getC5_from().length()>0) {
+				obj_tar.setC5From(Double.parseDouble(obj_src.getC5().getC5_from()));
+				}
+				if(obj_src.getC5().getC5_to().length()>0) {
+				obj_tar.setC5To(Double.parseDouble(obj_src.getC5().getC5_to()));
+				}
+				if(obj_src.getC5().getC5_value().length()>0) {
+					obj_tar.setC5Value(Double.parseDouble(obj_src.getC5().getC5_value()));
+				}
+				
+			}
 			lshc.add(obj_tar);
 		}
-		*/
+		
 		sh.setSchemeHeaderDetail(lshd);
-		//sh.setSchemeHeaderCond(lshc);
+		sh.setSchemeHeaderCond(lshc);
 
 		schemeHeaderRepository.save(sh);
 		 StatusVO status=new StatusVO();

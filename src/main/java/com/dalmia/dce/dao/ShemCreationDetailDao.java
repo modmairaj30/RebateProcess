@@ -834,15 +834,15 @@ public class ShemCreationDetailDao {
 	public Map<String,SchemeTypeVO> getSchemeType() throws SQLException {
 		Connection jdbcConnection = dataSource.getConnection();
 		Map<String,SchemeTypeVO> countryCodeMap = new LinkedHashMap<String,SchemeTypeVO>();
-		String sql = "SELECT type, scheme_name FROM scheme_def";
+		String sql = "SELECT scheme_type, scheme_name FROM scheme_def";
 		//connect();
 		Statement statement = jdbcConnection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sql);
 		while (resultSet.next()) {
 			SchemeTypeVO schTypeVO = new SchemeTypeVO();
-			String schType = resultSet.getString("Ctr");
-			schTypeVO.setSchemeType(resultSet.getString("Ccd"));
-			schTypeVO.setSchemeName(resultSet.getString("Ccd"));
+			String schType = resultSet.getString("scheme_type");
+			schTypeVO.setSchemeType(resultSet.getString("scheme_type"));
+			schTypeVO.setSchemeName(resultSet.getString("scheme_name"));
 			countryCodeMap.put(schType, schTypeVO);
 			
 		}

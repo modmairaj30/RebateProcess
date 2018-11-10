@@ -49,14 +49,14 @@ public class SchemeHeaderVO {
 
 	private String createdOn;
 	
-	private List HeaderDetailsCondVO;
+	private List<SchemeHeaderCondVO> rows;
 	
 	
-	public List getHeaderDetailsCondVO() {
-		return HeaderDetailsCondVO;
+	public List<SchemeHeaderCondVO> getRows() {
+		return rows;
 	}
-	public void setHeaderDetailsCondVO(List headerDetailsCondVO) {
-		HeaderDetailsCondVO = headerDetailsCondVO;
+	public void setRows(List<SchemeHeaderCondVO> rows) {
+		this.rows = rows;
 	}
 	private CompanyCodesVO companyCode;
 	

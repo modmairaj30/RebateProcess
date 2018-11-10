@@ -1,128 +1,56 @@
-package com.dalmia.dce.entities;
+package com.dalmia.dce.vo;
 
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-@Entity
-@Table(name = "sch_header")
-
-public class SchemeHeader {
-	@Id
-	@Column(name = "Header_Id",length=11)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SchemeHeaderGetVO {
 	private int schemeId;
-	
-	@Column(name = "Sales_Doc_Type",length=4)
+
 	private String salesDocType;
-	
-	@Column(name = "Scheme_Category",length=30)
+
 	private String schemCategory;
-	
-	@Column(name = "Scheme_Type",length=30)
+
 	private String schemType;
-	
-	@Column(name = "Order_No",length=30)
+
 	private String OrderNo;
-	
-	@Column(name = "Scheme_No",length=30)
+
 	private String schemNumb;
-	
-	@Column(name = "Price_List",length=4)
+
 	private String priceList;
-	
-	@Column(name = "Self_Or_Group",length=4)
+
 	private String selfOrGroup;
-	
-	@Column(name = "Tax_COde",length=4)
+
 	private String taxCode;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "From_Date")
+
 	private Date fromDate;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "To_Date")
+
 	private Date toDate;
-	
-	@Column(name = "GL_Account",length=10)
-    private String glAccount;
-	
-	@Column(name = "Budget_Reference_No",length=12)
-    private String budgetReferenceNo;
-	
-	
-	@Column(name = "Business_Place",length=4)
+
+	private String budgetReferenceNo;
+
 	private String businessPlace;
-	
-	
-	@Column(name = "Active",length=4)
+
 	private String active;
-	
-	@Column(name = "Exclusive_CST_Sale",length=4)
+
 	private String exclusiveCSTSale;
-	
-	@Column(name = "Single_Charecter_Ind",length=4)
+
 	private String singleCharecterInd;
-	
-	
-	@Column(name = "SAP_NonSAP_Date",length=4)
+
 	private String sapNonSapDate;
-	
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "Prev_From_Date")
+
 	private Date prevfromDate;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "Prev_To_Date")
+
 	private Date prevToDate;
-	
-	@Column(name = "Cost_Center",length=10)
-    private String costCenter;
-	
-	@Column(name = "Business_Area",length=4)
-	private String buisnessArea;
-	
-	
-	@Column(name = "Created_By",length=12)
+
+	//private String costCenter;
+
 	private String createdBy;
-	
-	@Column(name = "Created_On",length=15)
+
 	private String createdOn;
 	
-	@Column(name = "Approve_Status",length=45)
-	private String approveStatus;
+	private List<SchemeHeaderGetDetailVO> schemeHeaderDetail;
 	
-	
-	
-	@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
-    private List<SchemeHeaderDetail> schemeHeaderDetail;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Header_Id", referencedColumnName = "Header_Id")
-    private List<SchemeHeaderCond> schemeHeaderCond;
-	////////
-
-	public List<SchemeHeaderCond> getSchemeHeaderCond() {
-		return schemeHeaderCond;
-	}
-
-	public void setSchemeHeaderCond(List<SchemeHeaderCond> schemeHeaderCond) {
-		this.schemeHeaderCond = schemeHeaderCond;
-	}
+	private List<SchemeHeaderGetConditionVO> schemeHeaderCond;
 
 	public int getSchemeId() {
 		return schemeId;
@@ -212,14 +140,6 @@ public class SchemeHeader {
 		this.toDate = toDate;
 	}
 
-	public String getGlAccount() {
-		return glAccount;
-	}
-
-	public void setGlAccount(String glAccount) {
-		this.glAccount = glAccount;
-	}
-
 	public String getBudgetReferenceNo() {
 		return budgetReferenceNo;
 	}
@@ -284,22 +204,6 @@ public class SchemeHeader {
 		this.prevToDate = prevToDate;
 	}
 
-	public String getCostCenter() {
-		return costCenter;
-	}
-
-	public void setCostCenter(String costCenter) {
-		this.costCenter = costCenter;
-	}
-
-	public String getBuisnessArea() {
-		return buisnessArea;
-	}
-
-	public void setBuisnessArea(String buisnessArea) {
-		this.buisnessArea = buisnessArea;
-	}
-
 	public String getCreatedBy() {
 		return createdBy;
 	}
@@ -316,30 +220,22 @@ public class SchemeHeader {
 		this.createdOn = createdOn;
 	}
 
-	public String getApproveStatus() {
-		return approveStatus;
-	}
-
-	public void setApproveStatus(String approveStatus) {
-		this.approveStatus = approveStatus;
-	}
-
-	public List<SchemeHeaderDetail> getSchemeHeaderDetail() {
+	public List<SchemeHeaderGetDetailVO> getSchemeHeaderDetail() {
 		return schemeHeaderDetail;
 	}
 
-	public void setSchemeHeaderDetail(List<SchemeHeaderDetail> schemeHeaderDetail) {
+	public void setSchemeHeaderDetail(List<SchemeHeaderGetDetailVO> schemeHeaderDetail) {
 		this.schemeHeaderDetail = schemeHeaderDetail;
 	}
 
-	/*public List<SchemeHeaderCond> getSchemeHeaderCond() {
+	public List<SchemeHeaderGetConditionVO> getSchemeHeaderCond() {
 		return schemeHeaderCond;
 	}
 
-	public void setSchemeHeaderCond(List<SchemeHeaderCond> schemeHeaderCond) {
+	public void setSchemeHeaderCond(List<SchemeHeaderGetConditionVO> schemeHeaderCond) {
 		this.schemeHeaderCond = schemeHeaderCond;
 	}
-	*/
+
 	
 	
 	
